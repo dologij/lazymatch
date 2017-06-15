@@ -2,6 +2,11 @@ apply plugin: 'com.android.application'
 
 apply from: "../extras.gradle"
 
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 0 // bump for dogfood builds, public betas, etc.
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -9,14 +14,20 @@ android {
         applicationId "com.brunix.lazymatch"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField 'boolean', 'DEBUG_MODE', 'true'
+            buildConfigField "String", "REMOTE_SERVICE_URL", "\"https://quieromi-10873.firebaseio.com\"";
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'boolean', 'DEBUG_MODE', 'false'
         }
     }
 }
@@ -34,8 +45,9 @@ dependencies {
     compile "com.google.firebase:firebase-core:${versions.firebaseDb}"
     compile "com.google.firebase:firebase-database:${versions.firebaseDb}"
 
-    // Google
+    // Google Play Services
     //compile "com.google.android.gms:play-services:${versions.gPlayServices}"
+    compile "com.google.android.gms:play-services-location:${versions.gPlayServices}"
 
     // Dagger
     provided "javax.annotation:javax.annotation-api:${versions.annotation}"
