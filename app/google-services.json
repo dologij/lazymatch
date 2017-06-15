@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1093267481853",
+    "firebase_url": "https://lazymatch-dbb55.firebaseio.com",
+    "project_id": "lazymatch-dbb55",
+    "storage_bucket": "lazymatch-dbb55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093267481853:android:46aca8d2a9c05c70",
+        "android_client_info": {
+          "package_name": "com.brunix.lazymatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093267481853-tglt2l8ge6s33i04sh1uf4h4opsgrk8u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brunix.lazymatch",
+            "certificate_hash": "2e9f2873b65cbd56e10fd71ee3d8f60f6b5404b6"
+          }
+        },
+        {
+          "client_id": "1093267481853-7nisa5kg4246r2dr0526rbdaski8u428.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHxRn_GFidxCQ2fkhProFpDkLtEUYafAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093267481853-7nisa5kg4246r2dr0526rbdaski8u428.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

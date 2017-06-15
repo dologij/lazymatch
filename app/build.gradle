@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+apply from: "../extras.gradle"
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.brunix.lazymatch"
+        minSdkVersion 17
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile "com.android.support:appcompat-v7:${versions.supportLibs}"
+    compile "com.android.support.constraint:constraint-layout:${versions.constraintLayout}"
+    compile "com.android.support:recyclerview-v7:${versions.supportLibs}"
+
+    compile "com.google.firebase:firebase-core:${versions.firebaseDb}"
+    compile "com.google.firebase:firebase-database:${versions.firebaseDb}"
+
+    // Google
+    //compile "com.google.android.gms:play-services:${versions.gPlayServices}"
+
+    // Dagger
+    provided "javax.annotation:javax.annotation-api:${versions.annotation}"
+    compile "com.google.dagger:dagger:${versions.dagger}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${versions.dagger}"
+
+    // Butterknife
+    compile "com.jakewharton:butterknife:${versions.butterKnife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterKnife}"
+
+    // Picasso
+    compile "com.squareup.picasso:picasso:${versions.picasso}"
+
+    // AAC: Lifecycles, LiveData, ViewModel
+    compile "android.arch.lifecycle:runtime:${versions.arch}"
+    compile "android.arch.lifecycle:extensions:${versions.arch}"
+    annotationProcessor "android.arch.lifecycle:compiler:${versions.arch}"
+
+    // AAC: Room
+    compile "android.arch.persistence.room:runtime:${versions.arch}"
+    annotationProcessor "android.arch.persistence.room:compiler:${versions.arch}"
+
+    // Multidex
+    compile "com.android.support:multidex:${versions.multidex}"
+
+    testCompile "junit:junit:${versions.junit}"
+}
